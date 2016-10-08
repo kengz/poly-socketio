@@ -1,6 +1,8 @@
 machine:
   node:
     version: 6
+  environment:
+    CODECLIMATE_REPO_TOKEN: 51b738fba5d239a66062cb1136feb8156cedcd2a7724683807d74ebb54bc19e6
 
 dependencies:
   override:
