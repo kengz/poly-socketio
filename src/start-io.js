@@ -18,7 +18,6 @@ var log = winston // for logging here
  * @param  {*} robot The hubot object
  * @return {server} server
  */
- /* istanbul ignore next */
  function ioServer(port=6466, clientCount=1, timeoutMs=15000) {
   if (global.io) {
     // if already started
@@ -91,7 +90,6 @@ function initLogger(debug) {
  * The main method to start the io server.
  * options = {port, clientCount, timeoutMs, debug}
  */
- /* istanbul ignore next */
  function ioStart(options) {
   options = options || {}
   initLogger(options.debug)
