@@ -1,0 +1,36 @@
+{
+  "name": "poly-socketio",
+  "version": "1.0.0",
+  "description": "Polyglot SocketIO server that allows cross-language communication via JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kengz/poly-socketio.git"
+  },
+  "keywords": [
+    "polyglot",
+    "socketio",
+    "json",
+    "rest",
+    "node",
+    "python",
+    "ruby",
+    "server"
+  ],
+  "author": "kengz kengzwl@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kengz/poly-socketio/issues"
+  },
+  "homepage": "https://github.com/kengz/poly-socketio#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "express": "^4.14.0",
+    "lodash": "^4.16.4",
+    "socket.io": "^1.5.0",
+    "winston": "^2.2.0"
+  }
+}
