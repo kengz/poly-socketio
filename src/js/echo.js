@@ -1,3 +1,4 @@
+// The sample function for js; For test only
 const _ = require('lodash')
 
 function ping(input) {

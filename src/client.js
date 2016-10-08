@@ -3,6 +3,7 @@ const _ = require('lodash')
 const path = require('path')
 const requireDir = require('require-dir')
 const socketIOClient = require('socket.io-client')
+const log = require(path.join(__dirname, 'log'))
 
 var lib_js, client
 const ioid = 'js' // the id of this script for io client registration
@@ -32,7 +33,7 @@ function correctReply(reply, msg) {
  */
 /* istanbul ignore next */
 function handle(msg) {
-  console.log('handling msg', msg)
+  log.debug('handling msg', msg)
   var to = msg.to,
     intent = msg.intent;
   if (to && intent) {
@@ -44,12 +45,12 @@ function handle(msg) {
       try {
         reply = _.get(lib_js[to], intent)(msg.input)
       } catch (deepErr) {
-        console.log('js handle fails.', deepErr)
+        log.debug('js handle fails.', deepErr)
       }
     } finally {
       // try JSON or made-JSON output
       reply = correctReply(reply, msg)
-      console.log('reply', reply)
+      log.debug('reply', reply)
       if (reply.to) {
         client.emit('pass', reply)
       }
@@ -61,9 +62,9 @@ function handle(msg) {
 function join() {
   // import all in lib/js/, called only when the modules are needed
   lib_js = requireDir(path.join(__dirname, 'js'))
-  console.log(`import js lib from client.js`)
+  log.debug(`import js lib from client.js`)
   const IOPORT = process.env.IOPORT || 6466
-  console.log(`Starting socketIO client for js at ${IOPORT}`)
+  log.info(`Starting socketIO client for js at ${IOPORT}`)
   client = socketIOClient(`http://localhost:${IOPORT}`)
   client.emit('join', ioid)
   client.on('disconnect', client.disconnect)

@@ -30,7 +30,9 @@
     "bluebird": "^3.4.6",
     "express": "^4.14.0",
     "lodash": "^4.16.4",
+    "randombytes": "^2.0.3",
     "socket.io": "^1.5.0",
+    "socket.io-client": "^1.5.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {
@@ -38,7 +40,6 @@
     "coveralls": "^2.11.14",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
-    "require-dir": "^0.3.1",
-    "socket.io-client": "^1.5.0"
+    "require-dir": "^0.3.1"
   }
 }
