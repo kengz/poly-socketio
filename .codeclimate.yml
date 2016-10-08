@@ -1,0 +1,21 @@
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+  fixme:
+    enabled: true
+  eslint:
+    enabled: true
+    checks:
+      no-process-exit:
+        enabled: false
+
+ratings:
+  paths:
+  - "**.js"
+  - "**.jsx"
+
+exclude_paths:
+- test/
