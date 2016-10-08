@@ -9,7 +9,9 @@ const ioid = 'global-client-js' // the id of this script for io client registrat
 var client
 
 // init a global client at port
-function init(port = 6466) {
+function init(options) {
+  options = options || {}
+  var port = options.port || 6466
   global.client = global.client || socketIOClient(`http://localhost:${port}`)
   client = global.client
   log.debug(`Started global js socketIO client for ${process.env.ADAPTER} at ${port}`)
