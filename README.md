@@ -13,8 +13,8 @@ This is used in [AIVA](https://github.com/kengz/aiva) to communicate JSON data a
 
 ```js
 const polyIO = require('poly-socketio')
-cont IOPORT = 6466
-var ioPromise = polyIO.server({port: IOPORT, clientCount: 1, timeoutMs: 15000, debug: False})
+const IOPORT = 6466
+var ioPromise = polyIO.server({port: IOPORT, clientCount: 1, timeoutMs: 15000, debug: false})
 var gClient = polyIO.gClient({port: IOPORT})
 
 var msg = {

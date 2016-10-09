@@ -81,8 +81,7 @@ function ioServer(port = 6466, clientCount = 1, timeoutMs = 15000) {
 function ioStart(options) {
   options = options || {}
   log.transports.console.level = options.debug ? 'debug' : 'info'
-  ioServer(options.port, options.clientCount, options.timeoutMs)
-  return global.ioPromise
+  return ioServer(options.port, options.clientCount, options.timeoutMs)
 }
 
 /* istanbul ignore next */
