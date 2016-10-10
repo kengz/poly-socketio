@@ -5,14 +5,14 @@ const socketIOClient = require('socket.io-client')
 const should = chai.should()
 const polyIO = require('../index')
 const client = require('../src/client')
-var globalClient
 
 describe('start poly-socketio', () => {
   var ioPromise = polyIO.server({ debug: true, clientCount: 2 })
 
   it('resolve global.ioPromise when all joined', () => {
     client.join()
-    globalClient = polyIO.gClient()
+    polyIO.client()
+    global.client.should.not.eq(client)
     return ioPromise
   })
 
@@ -23,7 +23,7 @@ describe('start poly-socketio', () => {
       intent: 'ping'
     }
     return new Promise((resolve, reject) => {
-      globalClient.pass(msg)
+      global.client.pass(msg)
         .then((reply) => {
           if (reply.output === 'ping hello js') {
             resolve()

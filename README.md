@@ -15,14 +15,14 @@ This is used in [AIVA](https://github.com/kengz/aiva) to communicate JSON data a
 const polyIO = require('poly-socketio')
 const IOPORT = 6466
 var ioPromise = polyIO.server({port: IOPORT, clientCount: 1, timeoutMs: 15000, debug: false})
-var gClient = polyIO.gClient({port: IOPORT})
+polyIO.client({port: IOPORT}) // this exposes a global.client
 
 var msg = {
   input: 'hello js',
   to: 'echo.js',
   intent: 'ping'
 }
-globalClient.pass(msg)
+global.client.pass(msg)
   .then((reply) => {
     if (reply.output === 'ping hello js') {
       console.log('success!')
