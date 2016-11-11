@@ -18,7 +18,7 @@ const server = http.Server(app)
  * @return {server} server
  */
 /* istanbul ignore next */
-function ioServer(port = 6466, clientCount = 1, timeoutMs = 15000) {
+function ioServer(port = 6466, clientCount = 1, timeoutMs = 100000) {
   if (global.io) {
     // if already started
     return Promise.resolve()
