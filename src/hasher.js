@@ -44,7 +44,7 @@ function handle(msg) {
     var cb = hashMap[hashStr]
     if (cb) {
       log.debug('hasher.handle invoking cb for global-client')
-      _.omit(hashMap, hashStr)
+      delete hashMap[hashStr]
       return cb(msg)
     }
   }
