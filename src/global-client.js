@@ -35,7 +35,9 @@ function init(options) {
 function pass(to, input) {
   var defer = cdefer()
   clientPass(defer.resolve, to, input)
-  return defer.promise
+  return defer.promise.catch((err) => {
+    console.log(`global-client-js promise exception with input: ${input}, to: ${JSON.stringify(to)}`)
+  })
 }
 
 /**
