@@ -33,7 +33,7 @@ function ioServer(port = 6466, clientCount = 1, timeoutMs = 100000) {
         socket.on('join', (id) => {
           socket.join(id)
           count--
-          log.debug(`${id} ${socket.id} joined, ${count} remains`)
+          log.info(`${id} ${socket.id} joined, ${count} remains`)
           if (count <= 0) {
             log.info(`All ${clientCount} IO clients have joined`)
             resolve(server) // resolve with the server
