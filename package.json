@@ -4,7 +4,9 @@
   "description": "Polyglot SocketIO server that allows cross-language communication via JSON",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -31,9 +33,10 @@
     "express": "^4.14.0",
     "lodash": "^4.16.4",
     "randombytes": "^2.0.3",
-    "socket.io": "^1.5.0",
-    "socket.io-client": "^1.5.0",
-    "winston": "^2.2.0"
+    "socket.io": "^2.0.2",
+    "socket.io-client": "^2.0.2",
+    "winston": "^2.2.0",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -41,5 +44,6 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
     "require-dir": "^0.3.1"
-  }
+  },
+  "snyk": true
 }
