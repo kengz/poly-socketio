@@ -44,7 +44,7 @@ function ioServer(port = 6466, clientCount = 1, timeoutMs = 100000) {
     })
     .timeout(timeoutMs)
     .catch((err) => {
-      log.error(JSON.stringify(err, null, 2))
+      log.error(err.message)
       log.error("Expected number of IO clients failed to join in time")
       process.exit(1)
     })
@@ -62,7 +62,7 @@ function ioServer(port = 6466, clientCount = 1, timeoutMs = 100000) {
           // reset of <to> for easy calling. May be empty if just passing to client.<lang>
         msg.to = module
         global.io.sockets.in(lang).emit('take', msg)
-      } catch (e) { log.error(JSON.stringify(e, null, 2)) }
+      } catch (e) { log.error(e.message) }
     })
   })
 
@@ -88,7 +88,8 @@ function ioStart(options) {
 const cleanExit = () => { process.exit() }
 process.on('SIGINT', cleanExit) // catch ctrl-c
 process.on('SIGTERM', cleanExit) // catch kill
-process.on('uncaughtException', log.error)
+process.on('uncaughtException', (e) => log.error(`${e.message} ${e.stack}`));
+
 
 // export for use by hubot
 module.exports = ioStart
