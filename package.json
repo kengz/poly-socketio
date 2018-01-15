@@ -1,6 +1,6 @@
 {
   "name": "poly-socketio",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Polyglot SocketIO server that allows cross-language communication via JSON",
   "main": "index.js",
   "scripts": {
