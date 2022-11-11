@@ -10,6 +10,7 @@ const socketIO = require('socket.io')
 const log = require(path.join(__dirname, 'log'))
 const app = express()
 const server = http.Server(app)
+process.env.PROCESSEXIT =  process.env.PROCESSEXIT || 'YES'; 
 
 /**
  * Start a Socket IO server connecting to a brand new Express server for use in dev. Sets global.io too.
@@ -85,7 +86,11 @@ function ioStart(options) {
 }
 
 /* istanbul ignore next */
-const cleanExit = () => { process.exit() }
+const cleanExit = () => {
+  if(process.env.PROCESSEXIT === 'YES'){
+    process.exit();
+  }
+};
 process.on('SIGINT', cleanExit) // catch ctrl-c
 process.on('SIGTERM', cleanExit) // catch kill
 process.on('uncaughtException', (e) => log.error(`${e.message} ${e.stack}`));
